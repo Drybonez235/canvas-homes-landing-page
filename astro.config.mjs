@@ -2,10 +2,7 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from "@tailwindcss/vite";
 //npm install tailwindcss @tailwindcss/vite
-//npm install -D @tailwindcss/typography
 
-import sitemap from '@astrojs/sitemap';
-//npm run astro add sitemap
 
 
 
@@ -16,10 +13,9 @@ export default defineConfig({
     format: 'directory', // Ensures pages are built as /page/index.html
   },
 
-  site: 'https://example.com',
+  site: 'https://www.canvas.homes',
 
   vite: {
-    plugins: [tailwindcss()],
   },
 
   server: {
@@ -27,5 +23,4 @@ export default defineConfig({
     open: true, 
   },
 
-  integrations: [sitemap()],
 });

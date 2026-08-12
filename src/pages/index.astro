@@ -1,25 +1,244 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
 
-import exampleimg from '../assets/images/favicon.svg'
 import '../styles/global.css';  
 ---
 
 <BaseLayout 
-  title="Home Page" 
-  description="Welcome to my lightning fast website built with Astro."
-  image="/images/home-og.jpg"
+  title="Canvas Homes" 
+  description=""
+  image=""
 >
-  <main>
-    <h1 class="text-center" >Welcome to my new site!</h1>
-	<Image 
-        src={exampleimg} 
-        alt="Gallery submission"
-		priority
-		fit="'contain' | 'cover' | 'fill' | 'none' | 'scale-down'"
-		position='center or other css options'
-      />
-  </main>
+<body class="antialiased selection:bg-[hsl(7,100%,67%)] bg-[hsl(var(--darkAccent-hsl))] font-sans">
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-dvh flex items-center py-16 lg:py-24 bg-linear-to-br from-[hsl(var(--darkAccent-hsl))] from-30% to-[hsl(var(--lightAccent-hsl))] text-white overflow-hidden">
+    
+    <!-- Top Left Brand Logo -->
+    <div class="absolute top-6 left-6 lg:top-8 lg:left-12 z-20">
+      <a href="https://www.canvas.homes" class="inline-block transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--accent-hsl))] rounded-lg">
+        <img 
+          src="/canvas-homes-logo-nobg.png" 
+          alt="Canvas Homes Logo" 
+          class="h-10 sm:h-12 lg:h-16 w-auto object-contain"
+        />
+      </a>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 lg:gap-8 items-center pt-12 lg:pt-0">
+      
+      <!-- Left Column: Content -->
+      <div class="space-y-6 lg:pr-6 text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight">
+          Sell with confidence.
+        </h1>
+        
+        <p class="text-xl sm:text-2xl text-white/90 font-normal max-w-xl mx-auto lg:mx-0">
+          We make selling houses easy.
+        </p>
+
+        <!-- CTA Action Group -->
+        <div class="pt-6 sm:pt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8">
+          <a 
+            href="https://www.canvas.homes/sellers" 
+            class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            Contact Us
+          </a>
+          <a 
+            href="/#FAQ" 
+            class="text-white hover:text-[hsl(var(--accent-hsl))] font-medium text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 py-3.5 px-2 focus:outline-none"
+          >
+            Learn More &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Card Image Container -->
+      <div class="relative w-full max-w-lg mx-auto lg:max-w-none">
+        <div class="relative aspect-[4/3] sm:aspect-[1/1] w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+          <img 
+            src="/show-home-red-chair-square-logo.png" 
+            alt="Real estate consultation" 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- Fallback placeholder -->
+          <div class="hidden absolute inset-0 bg-[hsl(var(--darkAccent-hsl))/0.1] flex-col items-center justify-center text-center p-6 text-[hsl(var(--darkAccent-hsl))]">
+            <svg class="w-16 h-16 mb-4 text-[hsl(var(--accent-hsl))]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <p class="font-semibold text-xl">Hero Image Placeholder</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESS / FAQ SECTION -->
+  <section id="FAQ" class="py-16 lg:py-24 bg-[hsl(var(--white-hsl))] text-[hsl(var(--darkAccent-hsl))]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[hsl(var(--darkAccent-hsl))]">
+          Our Process
+        </h2>
+        <p class="text-base sm:text-lg text-[hsl(var(--darkAccent-hsl))/0.8] mt-4">
+          Everything you need to know about selling your home directly to Canvas Homes.
+        </p>
+      </div>
+
+      <!-- Info Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        
+        <!-- Card 1 -->
+        <div class="bg-[hsl(var(--lightAccent-hsl))] rounded-3xl p-8 flex flex-col justify-between border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div>
+            <div class="w-20 h-20 mb-6 mx-auto sm:mx-0 flex items-center justify-center bg-white/70 rounded-2xl p-3 shadow-inner">
+              <img 
+                src="/checklist-house-coral.webp" 
+                alt="House checklist icon" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Is there anything I need to do to the house prior to closing?
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              Simply remove your personal belongings that you want to keep, and we handle the rest. No need to worry about repairs or unwanted items.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-[hsl(var(--lightAccent-hsl))] rounded-3xl p-8 flex flex-col justify-between border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div>
+            <div class="w-20 h-20 mb-6 mx-auto sm:mx-0 flex items-center justify-center bg-white/70 rounded-2xl p-3 shadow-inner">
+              <img 
+                src="/sale-house-coral.webp" 
+                alt="House sale evaluation icon" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              What will your offer price be based on?
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              A comparative market analysis will be conducted to identify a value for the home.
+            </p>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base mt-4 font-medium">
+              We present an offer price that takes into account no repairs needing to be made by the seller, no title-related closing costs to be paid by the seller, and free of commission owed to Canvas Homes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-[hsl(var(--lightAccent-hsl))] rounded-3xl p-8 flex flex-col justify-between border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div>
+            <div class="w-20 h-20 mb-6 mx-auto sm:mx-0 flex items-center justify-center bg-white/70 rounded-2xl p-3 shadow-inner">
+              <img 
+                src="/cash-house-coral.webp" 
+                alt="Cash offer icon" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Are there any hidden fees?
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              No. Everything will be strictly accounted for in the offer provided, which will also be explained at the time of presenting it.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SPLIT IMAGE & TEXT SECTION -->
+  <section id="about" class="py-20 lg:py-28 bg-[hsl(var(--darkAccent-hsl))] text-white">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Secondary Image Placeholder -->
+      <div class="w-full h-[350px] sm:h-[450px] rounded-3xl overflow-hidden relative shadow-2xl border border-white/10 group">
+        <img 
+          src="/show-home-happy-couple-landscape.jpeg" 
+          alt="Canvas Homes consultation" 
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        >
+      </div>
+
+      <!-- Text Side -->
+      <div class="space-y-8 text-center lg:text-left">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+          Ready to Sell?
+        </h2>
+        
+        <ul class="space-y-4 font-medium text-lg text-white/90 inline-block text-left">
+          <li class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-[hsl(var(--accent-hsl))]/20 text-[hsl(var(--accent-hsl))] flex items-center justify-center text-sm font-bold">✓</span>
+            We buy inherited homes 
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-[hsl(var(--accent-hsl))]/20 text-[hsl(var(--accent-hsl))] flex items-center justify-center text-sm font-bold">✓</span>
+            We buy foreclosures
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-[hsl(var(--accent-hsl))]/20 text-[hsl(var(--accent-hsl))] flex items-center justify-center text-sm font-bold">✓</span>
+            We buy rentals
+          </li>
+        </ul>
+
+        <!-- Action Links -->
+        <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8">
+          <a 
+            href="https://www.canvas.homes/sellers" 
+            class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none"
+          >
+            Contact Us
+          </a>
+          <a 
+            href="https://www.canvas.homes/about" 
+            class="text-white hover:text-[hsl(var(--accent-hsl))] font-medium text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 py-3.5 px-2 focus:outline-none"
+          >
+            Learn More &rarr;
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[hsl(var(--white-hsl))] border-t border-[hsl(var(--lightAccent-hsl))] py-12 text-[hsl(var(--darkAccent-hsl))]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <!-- Footer Logo -->
+      <a href="#" class="flex items-center gap-3 group transition-transform duration-300 hover:scale-105">
+        <img 
+          src="/canvas-homes-logo-nobg.png" 
+          alt="Canvas Homes Logo" 
+          class="h-12 w-auto object-contain"
+        >
+        <span class="text-xl font-bold tracking-tight text-[hsl(var(--darkAccent-hsl))]">Canvas Homes</span>
+      </a>
+
+      <p class="text-sm opacity-70 text-center">
+        &copy; 2026 Canvas Homes, Inc. All rights reserved.
+      </p>
+
+      <div class="flex gap-6 text-sm font-medium opacity-80">
+        <a href="#" class="hover:text-[hsl(var(--accent-hsl))] transition-colors duration-200">Privacy</a>
+        <a href="#" class="hover:text-[hsl(var(--accent-hsl))] transition-colors duration-200">Terms</a>
+        <a href="#" class="hover:text-[hsl(var(--accent-hsl))] transition-colors duration-200">Contact</a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
 </BaseLayout>
 

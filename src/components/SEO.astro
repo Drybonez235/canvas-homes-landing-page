@@ -1,7 +1,7 @@
 ---
-const SITE_DEFAULT_TITLE = 'My Awesome Astro Base';
-const SITE_DEFAULT_DESC = 'The perfect starting point for my web projects.';
-const SITE_DEFAULT_IMG = '/default-og-image.jpg'; // Placed in public/ folder
+const SITE_DEFAULT_TITLE = 'Canvas Homes | Real Estate Brokerage in Tennessee';
+const SITE_DEFAULT_DESC = 'Canvas Forum is an exclusive real estate brokerage where homeowners can make quick cash sales and buyers can discover their next investment property.';
+const SITE_DEFAULT_IMG = '/canvas-homes-logo-nobg.png'; // Placed in public/ folder
 
 export interface BusinessInfo {
   name: string;
@@ -26,6 +26,7 @@ interface Props {
   type?: 'website' | 'article';
   businessInfo?: BusinessInfo;
 }
+
 
 const {
   title = SITE_DEFAULT_TITLE,
