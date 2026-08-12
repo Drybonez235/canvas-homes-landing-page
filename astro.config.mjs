@@ -8,7 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   trailingSlash: 'always',
-
+  adapter: cloudflare(),
   build: {
     format: 'directory', // Ensures pages are built as /page/index.html
   },
@@ -16,6 +16,7 @@ export default defineConfig({
   site: 'https://www.canvas.homes',
 
   vite: {
+    
   },
 
   server: {
