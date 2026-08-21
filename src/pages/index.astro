@@ -1,28 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
+import FormAstroComponent from '../components/form.astro';
 import '../styles/global.css';  
 ---
 
 <BaseLayout 
   title="Canvas Homes" 
-  description=""
-  image=""
+  description="We specialize in simplifying the real estate transaction and providing a solution for all parties. With a keen understanding of the dynamic real estate market, we offer a streamlined process that ensures quick cash transactions for sellers and simplified opportunities for buyers."
+  image="favicon.svg"
 >
 <body class="antialiased selection:bg-[hsl(7,100%,67%)] bg-[hsl(var(--darkAccent-hsl))] font-sans">
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6DN53XZ"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6DN53XZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DBR09PJ18P"></script>
-<script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBR09PJ18P"></script> -->
+<!-- <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-DBR09PJ18P');
-</script>
+</script> -->
  
   <!-- HERO SECTION -->
   <section class="relative min-h-dvh flex items-center py-16 lg:py-24 bg-linear-to-br from-[hsl(var(--darkAccent-hsl))] from-30% to-[hsl(var(--lightAccent-hsl))] text-white overflow-hidden">
@@ -53,7 +53,7 @@ import '../styles/global.css';
         <!-- CTA Action Group -->
         <div class="pt-6 sm:pt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8">
           <a 
-            href="https://www.canvas.homes/sellers" 
+            href="#canvas-homes-form" 
             class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-white"
           >
             Get Your Offer
@@ -208,7 +208,7 @@ import '../styles/global.css';
         <!-- Action Links -->
         <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8">
           <a 
-            href="https://www.canvas.homes/sellers" 
+            href="#canvas-homes-form" 
             class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none"
           >
             Get Your Offer
@@ -393,7 +393,7 @@ import '../styles/global.css';
         <div class="w-full flex flex-col sm:flex-row gap-3">
           <!-- Primary CTA Button -->
           <a 
-            href="https://www.canvas.homes/sellers" 
+            href="#canvas-homes-form" 
             class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-white"
           >
             Get Your Offer
@@ -413,6 +413,8 @@ import '../styles/global.css';
 
   </div>
 </section>
+
+<FormAstroComponent></FormAstroComponent>
   <!-- FOOTER -->
 <footer class="bg-[hsl(var(--white-hsl))] border-t border-[hsl(var(--lightAccent-hsl))] py-12 text-[hsl(var(--darkAccent-hsl))]">
   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">

@@ -13,7 +13,7 @@ export default defineConfig({
     format: 'directory', // Ensures pages are built as /page/index.html
   },
 
-  site: 'https://www.canvas.homes',
+  site: 'https://canvas-homes.ad-pages.com',
 
   vite: {
     
