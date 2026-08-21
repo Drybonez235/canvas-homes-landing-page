@@ -1,0 +1,426 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormAstroComponent from '../components/TradForm.astro';
+import CalcFormAstroComponent from '../components/CalcForm.astro';
+import FooterAstroComponent from '../components/Footer.astro'
+const currentPath = Astro.url.pathname;
+
+import '../styles/global.css';  
+---
+
+<BaseLayout 
+  title="Canvas Homes" 
+  description="We specialize in simplifying the real estate transaction and providing a solution for all parties. With a keen understanding of the dynamic real estate market, we offer a streamlined process that ensures quick cash transactions for sellers and simplified opportunities for buyers."
+  image="favicon.svg"
+>
+<body class="antialiased selection:bg-[hsl(7,100%,67%)] bg-[hsl(var(--darkAccent-hsl))] font-sans">
+  <!-- Google Tag Manager (noscript) -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6DN53XZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBR09PJ18P"></script> -->
+<!-- <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DBR09PJ18P');
+</script> -->
+ 
+  <!-- HERO SECTION -->
+  <section class="relative min-h-dvh flex items-center py-16 lg:py-24 bg-linear-to-br from-[hsl(var(--darkAccent-hsl))] from-30% to-[hsl(var(--lightAccent-hsl))] text-white overflow-hidden">
+    <!-- Top Left Brand Logo -->
+    <div class="top-6 left-12 lg:top-8 lg:left-24 z-20 absolute">
+      <a href="https://www.canvas.homes" class="inline-block transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--accent-hsl))] rounded-lg">
+        <img 
+          src="/canvas-homes-logo-nobg.png" 
+          alt="Canvas Homes Logo" 
+          class="h-10 sm:h-12 lg:h-24 w-auto object-contain"
+        />
+      </a>
+    </div>
+   
+
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 lg:gap-8 items-center pt-12 lg:pt-0">
+      
+      <!-- Left Column: Content -->
+      <div class="space-y-6 lg:pr-6 text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal text-white tracking-tight leading-tight">
+          Receive cash for your home.
+        </h1>
+        
+        <p class="text-xl sm:text-2xl text-white/90 font-normal max-w-xl mx-auto lg:mx-0">
+          Our proccess is quick and easy. No repairs, fees, or waiting.
+        </p>
+
+        <!-- CTA Action Group -->
+        <div class="pt-6 sm:pt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8">
+          <a 
+            href={currentPath +'#canvas-homes-form'}
+            class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            Get Your Offer
+          </a>
+          <a 
+            href={currentPath +'#FAQ'}
+            class="text-white hover:text-[hsl(var(--accent-hsl))] font-medium text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 py-3.5 px-2 focus:outline-none"
+          >
+            Learn More &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Card Image Container -->
+      <div class="relative w-full max-w-lg mx-auto lg:max-w-none">
+        <div class="relative aspect-[4/3] sm:aspect-[1/1] w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+          <img 
+            src="/show-home-red-chair-square-logo.png" 
+            alt="Real estate consultation" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- Fallback placeholder -->
+          <div class="hidden absolute inset-0 bg-[hsl(var(--darkAccent-hsl))/0.1] flex-col items-center justify-center text-center p-6 text-[hsl(var(--darkAccent-hsl))]">
+            <svg class="w-16 h-16 mb-4 text-[hsl(var(--accent-hsl))]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <p class="font-semibold text-xl">Hero Image Placeholder</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESS / FAQ SECTION -->
+  <section id="FAQ" class="py-16 lg:py-24 bg-[hsl(var(--white-hsl))] text-[hsl(var(--darkAccent-hsl))]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[hsl(var(--darkAccent-hsl))]">
+          Our Process
+        </h2>
+        <p class="text-base sm:text-lg text-[hsl(var(--darkAccent-hsl))/0.8] mt-4">
+          Everything you need to know about selling your home directly to Canvas Homes.
+        </p>
+      </div>
+
+      <!-- Info Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        
+        <!-- Card 1 -->
+        <div class="bg-[hsl(var(--lightAccent-hsl))] rounded-3xl p-8 flex flex-col justify-between border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div>
+            <div class="w-20 h-20 mb-6 mx-auto sm:mx-0 flex items-center justify-center bg-white/70 rounded-2xl p-3 shadow-inner">
+              <img 
+                src="/checklist-house-coral.webp" 
+                alt="House checklist icon" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Closing Check List
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              Simply remove the personal belongings that you want to keep, and we handle the rest. No need to worry about repairs or unwanted items.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-[hsl(var(--lightAccent-hsl))] rounded-3xl p-8 flex flex-col justify-between border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div>
+            <div class="w-20 h-20 mb-6 mx-auto sm:mx-0 flex items-center justify-center bg-white/70 rounded-2xl p-3 shadow-inner">
+              <img 
+                src="/sale-house-coral.webp" 
+                alt="House sale evaluation icon" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Offer Price
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              A comparative market analysis will be conducted to identify a value for your home.
+            </p>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base mt-4 font-medium">
+              Our offer accounts for repairs, closing costs, and commissions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-[hsl(var(--lightAccent-hsl))] rounded-3xl p-8 flex flex-col justify-between border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div>
+            <div class="w-20 h-20 mb-6 mx-auto sm:mx-0 flex items-center justify-center bg-white/70 rounded-2xl p-3 shadow-inner">
+              <img 
+                src="/cash-house-coral.webp" 
+                alt="Cash offer icon" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-4 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Paperwork and fees.
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              We assess your home and provide a cash offer. There is no waiting period or fees. Everything is accounted for in the offer provided and will be explained at the time of offer.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SPLIT IMAGE & TEXT SECTION -->
+  <section id="about" class="py-20 lg:py-28 bg-[hsl(var(--darkAccent-hsl))] text-white">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Secondary Image Placeholder -->
+      <div class="w-full h-[350px] sm:h-[450px] rounded-3xl overflow-hidden relative shadow-2xl border border-white/10 group">
+        <img 
+          src="/show-home-happy-couple-landscape.jpeg" 
+          alt="Canvas Homes consultation" 
+          class="w-full h-full object-cover"
+        >
+      </div>
+
+      <!-- Text Side -->
+      <div class="space-y-8 text-center lg:text-left">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+          Ready for your offer?
+        </h2>
+        
+        <ul class="space-y-4 font-medium text-lg text-white/90 inline-block text-left">
+          <li class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-[hsl(var(--accent-hsl))]/20 text-[hsl(var(--accent-hsl))] flex items-center justify-center text-sm font-bold">✓</span>
+            We buy inherited homes. 
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-[hsl(var(--accent-hsl))]/20 text-[hsl(var(--accent-hsl))] flex items-center justify-center text-sm font-bold">✓</span>
+            We buy foreclosures.
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-[hsl(var(--accent-hsl))]/20 text-[hsl(var(--accent-hsl))] flex items-center justify-center text-sm font-bold">✓</span>
+            We buy rentals.
+          </li>
+        </ul>
+
+        <!-- Action Links -->
+        <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8">
+          <a 
+            href={currentPath +'#canvas-homes-form'} 
+            class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none"
+          >
+            Get Your Offer
+          </a>
+          <a 
+            href={currentPath + '#testimonials'}
+            class="text-white hover:text-[hsl(var(--accent-hsl))] font-medium text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 py-3.5 px-2 focus:outline-none"
+          >
+            Learn More &rarr;
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- WHO YOU WORK WITH SECTION -->
+<section class="py-16 lg:py-24 bg-[hsl(var(--lightAccent-hsl))] text-[hsl(var(--darkAccent-hsl))]">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[hsl(var(--darkAccent-hsl))]">
+       We are Canvas Homes
+      </h2>
+      <p class="text-base sm:text-lg text-[hsl(var(--darkAccent-hsl))/0.8] mt-4">
+        You will work with local real estate professionals who live in your community.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      
+      <!-- Card 1: River / Region -->
+      <div class="bg-[hsl(var(--white-hsl))] rounded-3xl overflow-hidden border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col group">
+        <div class="relative h-56 sm:h-64 w-full overflow-hidden bg-[hsl(var(--darkAccent-hsl))/0.05]">
+          <img 
+            src="/canvas-home-who-your-work-with-river.webp" 
+            alt="Local community riverfront area" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none';"
+          />
+        </div>
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Local Market Expertise
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              We live and work in the communities we serve. Our deep understanding of local neighborhoods ensures an accurate, fair evaluation of your home.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Ball / Team Culture -->
+      <div class="bg-[hsl(var(--white-hsl))] rounded-3xl overflow-hidden border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col group">
+        <div class="relative h-56 sm:h-64 w-full overflow-hidden bg-[hsl(var(--darkAccent-hsl))/0.05]">
+          <img 
+            src="/canvas-homes-who-you-work-with-ball.webp" 
+            alt="Canvas Homes team culture" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none';"
+          />
+        </div>
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Dedicated Licensed Agents
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              You will work directly with experienced licensed agents who prioritize transparency, clear communication, and a stress-free process from start to finish.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Skyline / Metro Coverage -->
+      <div class="bg-[hsl(var(--white-hsl))] rounded-3xl overflow-hidden border border-[hsl(var(--darkAccent-hsl))/0.08] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col group">
+        <div class="relative h-56 sm:h-64 w-full overflow-hidden bg-[hsl(var(--darkAccent-hsl))/0.05]">
+          <img 
+            src="/canvas-homes-who-you-work-with-skyline.webp" 
+            alt="Metropolitan area skyline" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none';"
+          />
+        </div>
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-[hsl(var(--darkAccent-hsl))] leading-snug">
+              Comprehensive Metro Coverage
+            </h3>
+            <p class="text-[hsl(var(--darkAccent-hsl))/0.85] leading-relaxed text-base">
+              Whether your home is located in the heart of the city or in surrounding suburban areas, our team has the resources to evaluate and acquire properties across the region.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIAL & CTA SECTION -->
+<section id="testimonials" class="py-16 lg:py-24 bg-[hsl(var(--teal-hsl))] text-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Header (Left-aligned) -->
+    <div class="text-left max-w-3xl mb-12 lg:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+        What Our Clients Say
+      </h2>
+      <p class="text-base sm:text-lg text-white/80 mt-4">
+        Real stories from home sellers who worked directly with Canvas Homes.
+      </p>
+    </div>
+
+    <!-- Main 2-Column Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- LEFT COLUMN: Testimonial Card (Review + Image) -->
+      <div class="lg:col-span-8 pr-20 text-white relative  overflow-hidden flex flex-col justify-between">
+        
+        <!-- Subtle Decorative Accent Blur -->
+        <div class="absolute -bottom-16 -right-16 w-64 h-64 bg-[hsl(var(--accent-hsl))]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center relative z-10">
+          
+          <!-- Review Text Block -->
+          <div class="sm:col-span-7 space-y-4 text-left">
+            <!-- Coral Quote Icon -->
+            <div class="inline-flex items-center justify-center text-[hsl(var(--accent-hsl))]">
+              <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.83z"/>
+              </svg>
+            </div>
+
+            <!-- Quote Paragraph -->
+            <p class="text-lg sm:text-xl font-normal leading-relaxed text-white/90">
+              “I’ve had the pleasure of working with Levi several times, and each experience has been outstanding. He’s knowledgeable, responsive, and truly goes above and beyond for his clients.”
+            </p>
+
+            <!-- Client Info -->
+            <div class="pt-3 border-t border-white/15 w-full">
+              <p class="text-base font-bold text-white tracking-wide">
+                — Sandy H.
+              </p>
+            </div>
+          </div>
+
+          <!-- Image Block + Levi Segal Name -->
+          <div class="sm:col-span-5 flex flex-col items-center">
+            <div class="relative w-full max-w-[200px] sm:max-w-none rounded-2xl overflow-hidden border-2 border-[hsl(var(--accent-hsl))]">
+              <img 
+                src="/canvas-homes-levi-segal-headshot.png" 
+                alt="Levi Segal - Canvas Homes" 
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white tracking-wide text-center">
+              Levi Siegel
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Standalone Logo & CTA Buttons (No Card Wrapper) -->
+      <div class="lg:col-span-4 flex flex-col justify-between items-center text-center space-y-8">
+        <!-- Canvas Homes Logo -->
+        <div class="w-full flex justify-center items-center">
+          <img 
+            src="/canvas-homes-logo-stacked-white.png" 
+            alt="Canvas Homes Logo" 
+            class="max-w-[200px] sm:max-w-[240px] w-full h-auto object-contain"
+          />
+        </div>
+
+        <!-- Two CTA Buttons Side-by-Side -->
+        <div class="w-full flex flex-col sm:flex-row gap-3">
+          <!-- Primary CTA Button -->
+          <a 
+            href={currentPath +'#canvas-homes-form'}
+            class="text-[hsl(var(--darkAccent-hsl))] bg-[hsl(var(--accent-hsl))] hover:bg-[hsl(7,100%,72%)] font-semibold rounded-xl py-3.5 px-6 sm:px-8 text-lg sm:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            Get Your Offer
+          </a>
+
+          <!-- Secondary CTA Button -->
+          <a 
+            href="https://www.canvas.homes/contact" 
+            class="flex-1 text-center text-white bg-transparent border-2 border-white/30 hover:border-white hover:bg-white/10 font-semibold rounded-xl py-3.5 px-4 text-base transition-all duration-300 transform hover:scale-[1.02] active:scale-95 focus:outline-none"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<FormAstroComponent></FormAstroComponent>
+<FooterAstroComponent></FooterAstroComponent>
+
+</body>
+</BaseLayout>
+

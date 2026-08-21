@@ -1,0 +1,416 @@
+---
+import "../styles/global.css";
+---
+
+<section id="canvas-homes-form" class="relative">
+  <div
+    class="relative flex items-center justify-center min-h-screen bg-[hsl(var(--lightAccent-hsl))] p-6 font-sans"
+  >
+    <!-- Logo placed in the upper-left viewport corner -->
+    <a href="/" class="absolute top-6 left-6 md:top-10 md:left-10 z-10">
+      <img
+        src="/favicon.svg"
+        alt="Canvas Homes Logo"
+        class="w-12 h-12 md:w-36 md:h-36 object-contain"
+      />
+    </a>
+
+    <!-- Hidden iframe prevents page redirection on submission -->
+    <iframe name="hidden_google_iframe" id="hidden_google_iframe" class="hidden"
+    ></iframe>
+
+    <div
+      class="relative w-full max-w-xl bg-[hsl(var(--white-hsl))] rounded-2xl p-8 md:p-10 shadow-xl border border-black/5"
+    >
+      <!-- Progress Bar -->
+      <div
+        id="progressContainer"
+        class="w-full h-1.5 bg-black/10 rounded-full mb-8 overflow-hidden"
+      >
+        <div
+          id="progressBar"
+          class="h-full w-0 bg-[hsl(var(--accent-hsl))] transition-all duration-300 ease-out"
+        >
+        </div>
+      </div>
+
+      <!-- Form Endpoint -->
+      <form
+        id="interactiveForm"
+        action="https://docs.google.com/forms/u/0/d/1l-tsfAvHKaUsFFFk6IqWBUHet_aJNKK8AKBBdsWADos/formResponse"
+        method="POST"
+        target="hidden_google_iframe"
+      >
+        <!-- Step 1: Name & Inline Captcha -->
+        <div class="step-card active" data-step="1">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+            >Question 1 of 6</span
+          >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6"
+          >
+            Let's get started
+          </h2>
+
+          <div class="flex flex-col gap-5">
+            <!-- Name Field -->
+            <div>
+              <label
+                for="name"
+                class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1.5"
+              >
+                What is your name?
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="entry.471637009"
+                autocomplete="name"
+                class="w-full px-5 py-4 text-base rounded-xl border-2 border-black/10 bg-slate-50 focus:bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                placeholder="Type your name..."
+                required
+              />
+            </div>
+
+            <!-- Inline Captcha Field -->
+            <div>
+              <label
+                for="captcha"
+                class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1.5"
+              >
+                reCAPTCHA
+              </label>
+
+              <!-- Inline Image + Input Container -->
+              <div class="flex items-center gap-3">
+                <div
+                  class="shrink-0 flex items-center justify-center p-2 bg-slate-100 border-2 border-black/10 rounded-xl"
+                >
+                  <img
+                    src="/recaptcha.png"
+                    alt="Captcha Question"
+                    class="h-10 w-auto object-contain select-none"
+                  />
+                  <p>Ten + one = ?</p>
+                </div>
+                <input
+                  type="text"
+                  id="captcha"
+                  name="entry.1631833120"
+                  autocomplete="off"
+                  class="grow pl-2 py-4 text-base rounded-xl border-2 border-black/10 bg-slate-50 focus:bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                  placeholder="CAPTCHA Answer"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Phone -->
+        <div class="step-card hidden" data-step="5">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+            >Question 5 of 6</span
+          >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6"
+          >
+            What is your phone number?
+          </h2>
+          <input
+            type="tel"
+            id="phone-number"
+            name="entry.716591778"
+            autocomplete="tel"
+            class="w-full px-5 py-4 text-base rounded-xl border-2 border-black/10 bg-slate-50 focus:bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+            placeholder="(555) 000-0000"
+            required
+          />
+        </div>
+
+        <!-- Step 3: Timeline -->
+        <div class="step-card hidden" data-step="2">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+            >Question 2 of 6</span
+          >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6"
+          >
+            When are you looking to sell?
+          </h2>
+          <div class="flex flex-col gap-3">
+            {
+              ["ASAP", "30 days", "60 to 90 days", "Just exploring"].map(
+                (option) => (
+                  <label class="radio-label flex items-center px-5 py-4 rounded-xl border-2 border-black/10 bg-slate-50 hover:bg-white hover:border-[hsl(var(--accent-hsl))] cursor-pointer font-medium transition-all">
+                    <input
+                      type="radio"
+                      name="entry.1380702481"
+                      value={option}
+                      class="accent-[hsl(var(--accent-hsl))] w-5 h-5 mr-3"
+                      required
+                    />
+                    {option}
+                  </label>
+                ),
+              )
+            }
+          </div>
+        </div>
+
+        <!-- Step 4: Condition -->
+        <div class="step-card hidden" data-step="3">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+            >Question 3 of 6</span
+          >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6"
+          >
+            What is the condition of the property?
+          </h2>
+          <div class="flex flex-col gap-3">
+            {
+              ["Move-in ready", "Needs work", "Major repairs", "Not sure"].map(
+                (option) => (
+                  <label class="radio-label flex items-center px-5 py-4 rounded-xl border-2 border-black/10 bg-slate-50 hover:bg-white hover:border-[hsl(var(--accent-hsl))] cursor-pointer font-medium transition-all">
+                    <input
+                      type="radio"
+                      name="entry.74303621"
+                      value={option}
+                      class="accent-[hsl(var(--accent-hsl))] w-5 h-5 mr-3"
+                      required
+                    />
+                    {option}
+                  </label>
+                ),
+              )
+            }
+          </div>
+        </div>
+
+        <!-- Step 5: Reason -->
+        <div class="step-card hidden" data-step="4">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+            >Question 4 of 6</span
+          >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6"
+          >
+            What is your primary reason for selling?
+          </h2>
+          <div class="flex flex-col gap-3">
+            {
+              [
+                "Inherited",
+                "Foreclosure",
+                "Relocating",
+                "Tired of renting it out",
+                "Other",
+              ].map((option) => (
+                <label class="radio-label flex items-center px-5 py-4 rounded-xl border-2 border-black/10 bg-slate-50 hover:bg-white hover:border-[hsl(var(--accent-hsl))] cursor-pointer font-medium transition-all">
+                  <input
+                    type="radio"
+                    name="entry.531775766"
+                    value={option}
+                    class="accent-[hsl(var(--accent-hsl))] w-5 h-5 mr-3"
+                    required
+                  />
+                  {option}
+                </label>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Step 6: Address & Email -->
+        <div class="step-card hidden" data-step="6">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+            >Question 6 of 6</span
+          >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6"
+          >
+            Final Details
+          </h2>
+          <div class="flex flex-col gap-4">
+            <div>
+              <label
+                class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1"
+                >Property Address</label
+              >
+              <input
+                type="text"
+                id="street-address"
+                name="entry.1290912676"
+                autocomplete="street-address"
+                class="w-full px-5 py-4 text-base rounded-xl border-2 border-black/10 bg-slate-50 focus:bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                placeholder="123 Main St, City, State"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="entry.411143333"
+                autocomplete="email"
+                class="w-full px-5 py-4 text-base rounded-xl border-2 border-black/10 bg-slate-50 focus:bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Screen -->
+        <div id="successStep" class="hidden text-center py-6">
+          <h2
+            class="font-heading text-3xl font-bold text-[hsl(var(--darkAccent-hsl))] mb-3"
+          >
+            Thank You!
+          </h2>
+          <p class="text-slate-600">
+            Your information has been submitted. We'll be in touch shortly.
+          </p>
+        </div>
+
+        <!-- Form Navigation Controls -->
+        <div id="formControls" class="flex justify-between items-center mt-8">
+          <button
+            type="button"
+            id="prevBtn"
+            class="px-6 py-3 font-semibold text-sm rounded-xl text-[hsl(var(--darkAccent-hsl))] opacity-50 hover:opacity-100 disabled:opacity-20 disabled:cursor-not-allowed transition-all"
+            disabled
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            id="nextBtn"
+            class="px-7 py-3 font-semibold text-sm rounded-xl bg-[hsl(var(--accent-hsl))] text-[hsl(var(--safeInverseAccent-hsl))] hover:opacity-90 active:scale-[0.98] transition-all"
+          >
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Optional custom ring/selected styles for radios */
+  .radio-label:has(input:checked) {
+    border-color: hsl(var(--accent-hsl));
+    background-color: hsla(var(--accent-hsl), 0.05);
+  }
+</style>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 6;
+
+  // The landing page destination URL
+  const REDIRECT_URL = "https://www.canvas.homes/formsubmitted";
+
+  const stepCards = document.querySelectorAll(".step-card");
+  const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement;
+  const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement;
+  const progressBar = document.getElementById("progressBar");
+  const form = document.getElementById("interactiveForm") as HTMLFormElement;
+  const formControls = document.getElementById("formControls");
+  const progressContainer = document.getElementById("progressContainer");
+
+  function updateView() {
+    stepCards.forEach((card) => {
+      const step = parseInt((card as HTMLElement).dataset.step || "0");
+      if (step === currentStep) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+
+    prevBtn.disabled = currentStep === 1;
+    nextBtn.innerText = currentStep === totalSteps ? "Submit" : "Continue";
+
+    if (progressBar) {
+      const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+  }
+
+  function validateStep(): boolean {
+    const activeCard = document.querySelector(
+      `.step-card[data-step="${currentStep}"]`,
+    );
+    if (!activeCard) return false;
+
+    const inputs = activeCard.querySelectorAll("input");
+    for (let input of inputs) {
+      if (input.hasAttribute("required")) {
+        if (input.type === "radio") {
+          const radioGroup = activeCard.querySelectorAll(
+            `input[name="${input.name}"]`,
+          );
+          const isChecked = Array.from(radioGroup).some(
+            (r) => (r as HTMLInputElement).checked,
+          );
+          if (!isChecked) return false;
+        } else if (!input.value.trim()) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (!validateStep()) {
+      alert("Please fill in the required field before continuing.");
+      return;
+    }
+
+    if (currentStep < totalSteps) {
+      currentStep++;
+      updateView();
+    } else {
+      // 1. Submit form data into the hidden iframe
+      form.submit();
+
+      // 2. Disable buttons to prevent double submissions
+      nextBtn.disabled = true;
+      nextBtn.innerText = "Submitting...";
+
+      // 3. Short delay allowing background submission to complete before redirecting
+      setTimeout(() => {
+        window.location.href = REDIRECT_URL;
+      }, 300);
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentStep > 1) {
+      currentStep--;
+      updateView();
+    }
+  });
+
+  form.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      nextBtn.click();
+    }
+  });
+
+  updateView();
+</script>
