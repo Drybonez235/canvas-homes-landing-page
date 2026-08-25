@@ -305,7 +305,7 @@ import "../styles/global.css";
       const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
       progressBar.style.width = `${percentage}%`;
     }
-  }
+  
 
   function validateStep(): boolean {
     const activeCard = document.querySelector(`.step-card[data-step="${currentStep}"]`);
