@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CalcFormLanding from '../components/CalcFormLanding.astro';
+import FooterAstroComponent from '../components/Footer.astro';
+import '../styles/global.css';  
+---
+<BaseLayout
+  title="Canvas Homes | Instant Cash Estimate" 
+  description="Calculate your home's instant cash value with zero obligations or fees."
+  image="favicon.svg"
+>
+<body class="antialiased selection:bg-[hsl(7,100%,67%)] bg-[hsl(var(--darkAccent-hsl))] font-sans">
+
+ <CalcFormLanding></CalcFormLanding> 
+
+  <FooterAstroComponent />
+
+</body>
+</BaseLayout>

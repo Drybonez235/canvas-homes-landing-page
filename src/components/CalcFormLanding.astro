@@ -1,0 +1,627 @@
+---
+import "../styles/global.css";
+---
+
+<section
+  id="canvas-homes-form"
+  class="relative min-h-screen bg-darkAccent-hsl p-4 md:p-8 font-sans flex flex-col justify-between"
+>
+  <!-- Top Navigation / Header -->
+  <header
+    class="w-full max-w-7xl mx-auto flex justify-between items-center mb-6"
+  >
+    <a href="https://www.canvas.homes" class="flex items-center gap-3">
+      <img
+        src="/canvas-homes-logo-nobg.png"
+        alt="Canvas Homes Logo"
+        class="w-10 h-10 md:w-12 md:h-12 object-contain"
+      />
+      <span class="font-heading font-semibold text-lg leading-tight text-white">
+        Canvas<br />Homes
+      </span>
+    </a>
+
+    <!-- Contact Button -->
+    <a
+      href="tel:6152000774"
+      class="bg-[hsl(var(--accent-hsl))] text-white font-semibold px-6 py-2 rounded-full shadow-sm hover:opacity-90 transition-all text-sm md:text-base"
+    >
+      (615) 200-0774
+    </a>
+  </header>
+  <div class="border border-white w-full"></div>
+  <!-- Hero Content & Form Container -->
+  <main class="w-full max-w-7xl mx-auto grow flex flex-col justify-center mt-2">
+    <div class="mb-6">
+      <h1
+        class="font-heading text-3xl md:text-5xl font-bold text-white tracking-tight"
+      >
+        Get your home estimate
+      </h1>
+      <p class="text-white opacity-80 text-base md:text-lg mt-1 font-medium">
+        Our process is quick and easy. No repairs, fees, or waiting.
+      </p>
+    </div>
+
+    <!-- Main Grid: Left Side Form Box / Right Side Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left Box: Form Container -->
+      <div
+        class="lg:col-span-7 bg-[hsl(var(--white-hsl))] backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-sm flex flex-col justify-between min-h-[420px]"
+      >
+        <!-- Form Endpoint -->
+        <form
+          id="interactiveForm"
+          action="https://docs.google.com/forms/u/0/d/18re9-2qvNMEAnXrlnHyYXM3TEAdmo31MOv5y-GvU1V8/formResponse"
+          method="POST"
+          target="hidden_google_iframe"
+          class="grow flex flex-col justify-between"
+        >
+          <!-- Hidden iframe prevents page redirection on submission -->
+          <iframe
+            name="hidden_google_iframe"
+            id="hidden_google_iframe"
+            class="hidden"></iframe>
+
+          <!-- Progress Bar -->
+          <div
+            id="progressContainer"
+            class="w-full h-1.5 bg-black/10 rounded-full mb-6 overflow-hidden"
+          >
+            <div
+              id="progressBar"
+              class="h-full w-0 bg-[hsl(var(--accent-hsl))] transition-all duration-300 ease-out"
+            >
+            </div>
+          </div>
+
+          <!-- Step Cards -->
+          <div class="grow flex flex-col justify-center">
+            <!-- Step 1: Location Type -->
+            <div class="step-card active" data-step="1">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+                >Question 1 of 7</span
+              >
+              <h2
+                class="font-heading text-xl md:text-2xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-1 mb-4"
+              >
+                Property Location Type
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {
+                  [
+                    { label: "Downtown Metro", factor: 1.2 },
+                    { label: "Within City Limits", factor: 1.0 },
+                    { label: "Surrounding suburbs", factor: 1.1 },
+                    { label: "Countryside", factor: 0.85 },
+                  ].map((opt) => (
+                    <label class="radio-label flex items-center px-4 py-3 rounded-xl border-2 border-black/10 bg-white hover:border-[hsl(var(--accent-hsl))] cursor-pointer font-medium transition-all text-sm">
+                      <input
+                        type="radio"
+                        name="entry.798531007"
+                        value={opt.label}
+                        data-factor={opt.factor}
+                        class="accent-[hsl(var(--accent-hsl))] w-4 h-4 mr-3"
+                        required
+                      />
+                      {opt.label}
+                    </label>
+                  ))
+                }
+              </div>
+            </div>
+
+            <!-- Step 2: Property Condition -->
+            <div class="step-card hidden" data-step="2">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+                >Question 2 of 7</span
+              >
+              <h2
+                class="font-heading text-xl md:text-2xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-1 mb-4"
+              >
+                Property Condition
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {
+                  [
+                    { label: "Move-in ready", factor: 1.0 },
+                    { label: "Needs work", factor: 0.85 },
+                    { label: "Major repairs", factor: 0.7 },
+                    { label: "Not sure", factor: 0.8 },
+                  ].map((opt) => (
+                    <label class="radio-label flex items-center px-4 py-3 rounded-xl border-2 border-black/10 bg-white hover:border-[hsl(var(--accent-hsl))] cursor-pointer font-medium transition-all text-sm">
+                      <input
+                        type="radio"
+                        name="entry.1365799119"
+                        value={opt.label}
+                        data-factor={opt.factor}
+                        class="accent-[hsl(var(--accent-hsl))] w-4 h-4 mr-3"
+                        required
+                      />
+                      {opt.label}
+                    </label>
+                  ))
+                }
+              </div>
+            </div>
+
+            <!-- Step 3: Square Footage -->
+            <div class="step-card hidden" data-step="3">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+                >Question 3 of 7</span
+              >
+              <h2
+                class="font-heading text-xl md:text-2xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-1 mb-4"
+              >
+                Approximate Square Footage
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {
+                  [
+                    { label: "Less than 1,100", base: 180000 },
+                    { label: "1,200 - 2,200", base: 280000 },
+                    { label: "2,300 - 4,000", base: 420000 },
+                    { label: "4,100 +", base: 600000 },
+                  ].map((opt) => (
+                    <label class="radio-label flex items-center px-4 py-3 rounded-xl border-2 border-black/10 bg-white hover:border-[hsl(var(--accent-hsl))] cursor-pointer font-medium transition-all text-sm">
+                      <input
+                        type="radio"
+                        name="entry.574954111"
+                        value={opt.label}
+                        data-base={opt.base}
+                        class="accent-[hsl(var(--accent-hsl))] w-4 h-4 mr-3"
+                        required
+                      />
+                      {opt.label}
+                    </label>
+                  ))
+                }
+              </div>
+            </div>
+
+            <!-- Step 4: Reason for Selling -->
+            <div class="step-card hidden" data-step="4">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+                >Question 4 of 7</span
+              >
+              <h2
+                class="font-heading text-xl md:text-2xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-1 mb-4"
+              >
+                Reason for Selling
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {
+                  [
+                    "Inherited",
+                    "Foreclosure",
+                    "Relocating",
+                    "Tired of renting it out",
+                    "Other",
+                  ].map((opt) => (
+                    <label class="radio-label flex items-center px-4 py-3 rounded-xl border-2 border-black/10 bg-white hover:border-[hsl(var(--accent-hsl))] cursor-pointer font-medium transition-all text-sm">
+                      <input
+                        type="radio"
+                        name="entry.513273434"
+                        value={opt}
+                        class="accent-[hsl(var(--accent-hsl))] w-4 h-4 mr-3"
+                      />
+                      {opt}
+                    </label>
+                  ))
+                }
+              </div>
+            </div>
+
+            <!-- Step 5: Address & Email -->
+            <div class="step-card hidden" data-step="5">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+                >Question 5 of 7</span
+              >
+              <h2
+                class="font-heading text-xl md:text-2xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-1 mb-4"
+              >
+                Address & Email
+              </h2>
+              <div class="flex flex-col gap-3">
+                <div>
+                  <label
+                    for="street-address"
+                    class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1"
+                    >Property Address</label
+                  >
+                  <input
+                    type="text"
+                    id="street-address"
+                    name="entry.1974416481"
+                    autocomplete="street-address"
+                    class="w-full px-4 py-3 text-sm rounded-xl border-2 border-black/10 bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                    placeholder="123 Main St, City, State"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="entry.438778579"
+                    autocomplete="email"
+                    class="w-full px-4 py-3 text-sm rounded-xl border-2 border-black/10 bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 6: Phone -->
+            <div class="step-card hidden" data-step="6">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+                >Question 6 of 7</span
+              >
+              <h2
+                class="font-heading text-xl md:text-2xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-1 mb-4"
+              >
+                What is your phone number?
+              </h2>
+              <input
+                type="tel"
+                id="tel"
+                name="entry.214765654"
+                autocomplete="tel"
+                class="w-full px-4 py-3 text-sm rounded-xl border-2 border-black/10 bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                placeholder="(555) 000-0000"
+                required
+              />
+            </div>
+
+            <!-- Step 7: Name & Captcha -->
+            <div class="step-card hidden" data-step="7">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
+                >Final Step!</span
+              >
+              <h2
+                class="font-heading text-xl md:text-2xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-1 mb-4"
+              >
+                Complete Valuation Request
+              </h2>
+
+              <div class="flex flex-col gap-3">
+                <div>
+                  <label
+                    for="name"
+                    class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1"
+                    >What is your name?</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="entry.22027902"
+                    autocomplete="name"
+                    class="w-full px-4 py-3 text-sm rounded-xl border-2 border-black/10 bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors"
+                    placeholder="Type your name..."
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="captcha"
+                    class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1"
+                    >reCAPTCHA</label
+                  >
+                  <!-- Stack vertically on mobile, row on tablet/desktop -->
+                  <div
+                    class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
+                  >
+                    <div
+                      class="shrink-0 flex items-center justify-center gap-2 p-2.5 bg-slate-100 border-2 border-black/10 rounded-xl"
+                    >
+                      <img
+                        src="/recaptcha.png"
+                        alt="Captcha Question"
+                        class="h-8 w-auto object-contain select-none shrink-0"
+                      />
+                      <span
+                        class="text-sm font-semibold whitespace-nowrap text-[hsl(var(--darkAccent-hsl))]"
+                        >Ten + one = ?</span
+                      >
+                    </div>
+
+                    <input
+                      type="text"
+                      id="captcha"
+                      name="entry.1825806017"
+                      autocomplete="off"
+                      class="w-full sm:w-28 px-3 py-2.5 text-base rounded-xl border-2 border-black/10 bg-slate-50 focus:bg-white focus:border-[hsl(var(--accent-hsl))] outline-none transition-colors text-center"
+                      placeholder="Answer"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider & Controls Footer -->
+          <div
+            class="pt-6 mt-6 border-t border-black/10 flex justify-items-end sm:items-center sm:justify-between"
+          >
+            <div
+              class="hidden sm:block text-xs md:text-sm font-medium text-[hsl(var(--darkAccent-hsl))]"
+            >
+              Have questions?<br />
+              <a
+                href="tel:6152000774"
+                class="font-bold underline hover:no-underline text-[hsl(var(--accent-hsl))]"
+                >615-200-0774</a
+              >
+            </div>
+
+            <div class="flex gap-20 sm:gap-2">
+              <button
+                type="button"
+                id="prevBtn"
+                class="px-4 py-2 text-sm font-semibold rounded-full text-[hsl(var(--darkAccent-hsl))] opacity-60 hover:opacity-100 disabled:opacity-20 disabled:cursor-not-allowed transition-all"
+                disabled
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                id="nextBtn"
+                class="px-8 py-2.5 text-sm font-bold rounded-full bg-[hsl(var(--accent-hsl))] text-white hover:opacity-90 active:scale-95 transition-all shadow-sm"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Box: Summary Preview & Social Proof -->
+      <div class="lg:col-span-5 flex flex-col justify-between gap-8 py-2">
+        <!-- Live Preview Sidebar -->
+        <div class="space-y-4">
+          <div class="font-heading text-2xl md:text-3xl font-normal text-white">
+            Estimated Value <span
+              id="sidebarEstimate"
+              class="font-bold text-[hsl(var(--accent-hsl))]">$0</span
+            >
+          </div>
+
+          <div
+            class="grid grid-cols-2 gap-y-3 gap-x-4 text-sm font-medium text-white pt-2"
+          >
+            <div>
+              <span id="summarySqft" class="opacity-70">— Sq Ft</span>
+            </div>
+            <div>
+              <span id="summaryLocation" class="opacity-70">— Location</span>
+            </div>
+            <div>
+              <span id="summaryCondition" class="opacity-70">— Condition</span>
+            </div>
+            <div>
+              <span id="summaryReason" class="opacity-70">— Reason</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="space-y-2">
+          <p
+            class="text-sm md:text-base font-medium leading-relaxed text-white italic"
+          >
+            "I've had the pleasure of working with Levi several times, and each
+            experience has been outstanding. He's knowledgeable, responsive, and
+            truly goes above and beyond for his clients."
+          </p>
+          <div class="text-xs md:text-sm font-bold text-white">— Sandy H.</div>
+          <!-- Star Ratings -->
+          <div class="flex text-amber-400 text-lg">★ ★ ★ ★ ★</div>
+        </div>
+
+        <!-- Trust Credentials Footers -->
+        <div class="flex flex-wrap items-center gap-6 pt-4">
+          <!-- TN Commerce Logo -->
+          <div class="flex items-center gap-2">
+            <img
+              src="/tn-logo.png"
+              alt="TN Logo"
+              class="h-18 w-auto object-contain"
+            />
+            <div
+              class="text-xs leading-tight font-semibold text-white opacity-80"
+            >
+              Department of<br />
+              <strong class="font-bold">Commerce & Insurance</strong><br />
+              License #266344
+            </div>
+          </div>
+
+          <!-- NC Real Estate Logo -->
+          <div class="flex items-center gap-2">
+            <img
+              src="/NorthCarolinaRealEstateCommion.png"
+              alt="NC Real Estate Logo"
+              class="h-18 w-auto object-contain"
+            />
+            <div
+              class="text-xs leading-tight font-semibold text-white opacity-80"
+            >
+              North Carolina Real<br />
+              Estate Commission<br />
+              License #C41050, #C41444
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 7;
+  const REDIRECT_URL = "https://www.canvas.homes/formsubmitted";
+
+  const stepCards = document.querySelectorAll(".step-card");
+  const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement;
+  const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement;
+  const progressBar = document.getElementById("progressBar");
+  const form = document.getElementById("interactiveForm") as HTMLFormElement;
+
+  // Sidebar Elements
+  const sidebarEstimate = document.getElementById("sidebarEstimate");
+  const summarySqft = document.getElementById("summarySqft");
+  const summaryLocation = document.getElementById("summaryLocation");
+  const summaryCondition = document.getElementById("summaryCondition");
+  const summaryReason = document.getElementById("summaryReason");
+
+  function updateLiveSummary() {
+    const sqftRadio = document.querySelector(
+      'input[name="entry.574954111"]:checked',
+    ) as HTMLInputElement;
+    const locRadio = document.querySelector(
+      'input[name="entry.798531007"]:checked',
+    ) as HTMLInputElement;
+    const condRadio = document.querySelector(
+      'input[name="entry.1365799119"]:checked',
+    ) as HTMLInputElement;
+    const reasonRadio = document.querySelector(
+      'input[name="entry.513273434"]:checked',
+    ) as HTMLInputElement;
+
+    // Update text previews
+    if (summarySqft)
+      summarySqft.innerText = sqftRadio ? sqftRadio.value : "— Sq Ft";
+    if (summaryLocation)
+      summaryLocation.innerText = locRadio ? locRadio.value : "— Location";
+    if (summaryCondition)
+      summaryCondition.innerText = condRadio ? condRadio.value : "— Condition";
+    if (summaryReason)
+      summaryReason.innerText = reasonRadio ? reasonRadio.value : "— Reason";
+
+    // Calculate Estimate Range
+    if (sqftRadio || locRadio || condRadio) {
+      const baseVal = sqftRadio
+        ? parseFloat(sqftRadio.dataset.base || "250000")
+        : 250000;
+      const locFactor = locRadio
+        ? parseFloat(locRadio.dataset.factor || "1.0")
+        : 1.0;
+      const condFactor = condRadio
+        ? parseFloat(condRadio.dataset.factor || "1.0")
+        : 1.0;
+
+      const midPoint = baseVal * locFactor * condFactor;
+      const lowEnd = Math.round((midPoint * 0.92) / 1000) * 1000 - 30000;
+      const highEnd = Math.round((midPoint * 1.08) / 1000) * 1000;
+
+      if (sidebarEstimate) {
+        sidebarEstimate.innerText = `$${lowEnd.toLocaleString()} - $${highEnd.toLocaleString()}`;
+      }
+    } else if (sidebarEstimate) {
+      sidebarEstimate.innerText = "$0";
+    }
+  }
+
+  function updateView() {
+    stepCards.forEach((card) => {
+      const step = parseInt((card as HTMLElement).dataset.step || "0");
+      card.classList.toggle("hidden", step !== currentStep);
+    });
+
+    prevBtn.disabled = currentStep === 1;
+
+    if (currentStep === totalSteps) {
+      nextBtn.innerText = "Submit & Claim Offer";
+      nextBtn.className ="animate-pulse px-8 py-2.5 text-sm font-bold rounded-full bg-[hsl(var(--accent-hsl))] text-white hover:opacity-90 active:scale-95 transition-all shadow-sm";
+    } else {
+      nextBtn.innerText = "Next";
+    }
+
+    if (progressBar) {
+      const percentage = (currentStep / totalSteps) * 100;
+      progressBar.style.width = `${percentage}%`;
+    }
+  }
+
+  function validateStep(): boolean {
+    const activeCard = document.querySelector(
+      `.step-card[data-step="${currentStep}"]`,
+    );
+    if (!activeCard) return false;
+
+    const inputs = activeCard.querySelectorAll("input");
+    for (let input of inputs) {
+      if (input.hasAttribute("required")) {
+        if (input.type === "radio") {
+          const radioGroup = activeCard.querySelectorAll(
+            `input[name="${input.name}"]`,
+          );
+          const isChecked = Array.from(radioGroup).some(
+            (r) => (r as HTMLInputElement).checked,
+          );
+          if (!isChecked) return false;
+        } else if (!input.value.trim()) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  // Event Listeners for Live Sidebar Updates
+  form.addEventListener("change", updateLiveSummary);
+  form.addEventListener("input", updateLiveSummary);
+
+  nextBtn.addEventListener("click", () => {
+    if (!validateStep()) {
+      alert("Please complete the required field before continuing.");
+      return;
+    }
+
+    if (currentStep < totalSteps) {
+      currentStep++;
+      updateView();
+    } else {
+      form.submit();
+      nextBtn.disabled = true;
+      nextBtn.innerText = "Submitting...";
+
+      setTimeout(() => {
+        window.location.href = REDIRECT_URL;
+      }, 300);
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentStep > 1) {
+      currentStep--;
+      updateView();
+    }
+  });
+
+  form.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      nextBtn.click();
+    }
+  });
+
+  updateView();
+  updateLiveSummary();
+</script>
