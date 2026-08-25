@@ -8,8 +8,8 @@
 
     --white-hsl: 32, 0%, 100%;
     --lightAccent-hsl: 32, 25%, 88%;
-    --accent-hsl: 7, 100%, 67%;
-    --darkAccent-hsl: 192, 90%, 12%;
+    --accent-hsl: 7, 100%, 67%; /*Primary Brand Orange */
+    --darkAccent-hsl: 192, 90%, 12%; /*Primary Brand Green */
     --black-hsl: 192, 90%, 12%;
     --safeLightAccent-hsl: 7, 100%, 67%;
     --safeDarkAccent-hsl: 7, 100%, 67%;

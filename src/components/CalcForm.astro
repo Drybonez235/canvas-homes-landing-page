@@ -33,15 +33,15 @@ import "../styles/global.css";
       >
 
         <!-- Step 1: Name & Inline Captcha -->
-        <div class="step-card active" data-step="1">
+        <div class="step-card active" data-step="7">
           <span
             class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]"
-            >Question 1 of 6</span
+            >Question 7 of 8</span
           >
           <h2
             class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6"
           >
-            Let's get started
+            Final Step!
           </h2>
 
           <div class="flex flex-col gap-5">
@@ -100,8 +100,8 @@ import "../styles/global.css";
         </div>
 
         <!-- Step 2: Phone -->
-        <div class="step-card hidden" data-step="2">
-          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 2 of 8</span>
+        <div class="step-card hidden" data-step="6">
+          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 6 of 8</span>
           <h2 class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6">What is your phone number?</h2>
           <input 
             type="tel" 
@@ -115,8 +115,8 @@ import "../styles/global.css";
         </div>
 
         <!-- Step 3: Location Type -->
-        <div class="step-card hidden" data-step="3">
-          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 3 of 8</span>
+        <div class="step-card hidden" data-step="1">
+          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 1 of 8</span>
           <h2 class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6">Property Location Type</h2>
           <div class="flex flex-col gap-3">
             {[
@@ -134,8 +134,8 @@ import "../styles/global.css";
         </div>
 
         <!-- Step 4: Condition -->
-        <div class="step-card hidden" data-step="4">
-          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 4 of 8</span>
+        <div class="step-card hidden" data-step="2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 2 of 8</span>
           <h2 class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6">Property Condition</h2>
           <div class="flex flex-col gap-3">
             {[
@@ -153,8 +153,8 @@ import "../styles/global.css";
         </div>
 
         <!-- Step 5: Square Footage -->
-        <div class="step-card hidden" data-step="5">
-          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 5 of 8</span>
+        <div class="step-card hidden" data-step="3">
+          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 3 of 8</span>
           <h2 class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6">Approximate Square Footage</h2>
           <div class="flex flex-col gap-3">
             {[
@@ -172,8 +172,8 @@ import "../styles/global.css";
         </div>
 
         <!-- Step 6: Reason -->
-        <div class="step-card hidden" data-step="6">
-          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 6 of 8</span>
+        <div class="step-card hidden" data-step="4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 4 of 8</span>
           <h2 class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6">Reason for Selling</h2>
           <div class="flex flex-col gap-3">
             {["Inherited", "Foreclosure", "Relocating", "Tired of renting it out", "Other"].map((opt) => (
@@ -186,9 +186,9 @@ import "../styles/global.css";
         </div>
 
         <!-- Step 7: Address & Email -->
-        <div class="step-card hidden" data-step="7">
-          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 7 of 8</span>
-          <h2 class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6">Final Details</h2>
+        <div class="step-card hidden" data-step="5">
+          <span class="text-xs font-bold uppercase tracking-wider text-[hsl(var(--accent-hsl))]">Question 5 of 8</span>
+          <h2 class="font-heading text-2xl md:text-3xl font-semibold text-[hsl(var(--darkAccent-hsl))] mt-2 mb-6">Address & Email</h2>
           <div class="flex flex-col gap-4">
             <div>
               <label for="street-address" class="block text-xs font-semibold text-[hsl(var(--darkAccent-hsl))] mb-1">Property Address</label>
@@ -276,7 +276,7 @@ import "../styles/global.css";
     const condFactor = condRadio ? parseFloat(condRadio.dataset.factor || "1.0") : 1.0;
 
     const midPoint = baseVal * locFactor * condFactor;
-    const lowEnd = Math.round((midPoint * 0.92) / 1000) * 1000;
+    const lowEnd = Math.round((midPoint * 0.92) / 1000) * 1000 - 30000;
     const highEnd = Math.round((midPoint * 1.08) / 1000) * 1000;
 
     return `$${lowEnd.toLocaleString()} - $${highEnd.toLocaleString()}`;
@@ -292,10 +292,13 @@ import "../styles/global.css";
 
     if (currentStep === totalSteps) {
       nextBtn.innerText = "Submit & Claim Offer";
+       nextBtn.className ="animate-pulse px-8 py-2.5 text-sm font-bold rounded-full bg-[hsl(var(--accent-hsl))] text-white hover:opacity-90 active:scale-95 transition-all shadow-sm";
       const displayEl = document.getElementById('estimateDisplay');
       if (displayEl) displayEl.innerText = calculateEstimate();
     } else {
       nextBtn.innerText = "Continue";
+      nextBtn.className = "px-6 py-2.5 text-sm font-bold rounded-full bg-primary text-white hover:opacity-90 active:scale-95 transition-all shadow-sm";
+}
     }
 
     if (progressBar) {
